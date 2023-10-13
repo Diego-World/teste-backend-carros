@@ -1,0 +1,11 @@
+Olá, meu nome é Diego Gouveia e sou o desenvolvedor por trás desse teste!
+
+Aqui vou deixar minhas notas sobre o desenvolvimento.
+
+- Nota 1
+
+A criação do projeto foi feita utilizando o Spring initializr e a IDE que estou utilizando é o Intelij.
+
+No banco de dados estou utilizando o banco em memória H2 por conta da praticidade.
+
+Para gerenciador de pacotes estou utilizando o Maven por ter mais familiaridade.
