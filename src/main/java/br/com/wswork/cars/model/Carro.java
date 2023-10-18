@@ -23,8 +23,7 @@ public class Carro {
     public Carro() {
     }
 
-    public Carro(Long id, LocalDateTime timeStampCadastro, Modelo modelo, String ano, String combustivel, String numPortas, String cor) {
-        this.id = id;
+    public Carro(LocalDateTime timeStampCadastro, Modelo modelo, String ano, String combustivel, String numPortas, String cor) {
         this.timeStampCadastro = timeStampCadastro;
         this.modelo = modelo;
         this.ano = ano;
@@ -49,16 +48,16 @@ public class Carro {
         this.timeStampCadastro = timeStampCadastro;
     }
 
-    public String getAno() {
-        return ano;
-    }
-
     public Modelo getModelo() {
         return modelo;
     }
 
     public void setModelo(Modelo modelo) {
         this.modelo = modelo;
+    }
+
+    public String getAno() {
+        return ano;
     }
 
     public void setAno(String ano) {

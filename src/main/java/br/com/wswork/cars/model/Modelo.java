@@ -19,8 +19,7 @@ public class Modelo {
     public Modelo() {
     }
 
-    public Modelo(Long modeloId, String nome, Double valorFipe, Marca marca) {
-        this.modeloId = modeloId;
+    public Modelo(String nome, Double valorFipe, Marca marca) {
         this.nome = nome;
         this.valorFipe = valorFipe;
         this.marca = marca;
@@ -34,20 +33,20 @@ public class Modelo {
         this.modeloId = modeloId;
     }
 
-    public Double getValorFipe() {
-        return valorFipe;
-    }
-
-    public void setValorFipe(Double valorFipe) {
-        this.valorFipe = valorFipe;
-    }
-
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Double getValorFipe() {
+        return valorFipe;
+    }
+
+    public void setValorFipe(Double valorFipe) {
+        this.valorFipe = valorFipe;
     }
 
     public Marca getMarca() {

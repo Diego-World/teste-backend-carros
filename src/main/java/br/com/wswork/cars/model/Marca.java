@@ -8,15 +8,14 @@ import java.util.UUID;
 @Table(name = "tb_marca")
 public class Marca {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long marcaId;
     private String nomeMarca;
 
     public Marca() {
     }
 
-    public Marca(Long marcaId, String nomeMarca) {
-        this.marcaId = marcaId;
+    public Marca(String nomeMarca) {
         this.nomeMarca = nomeMarca;
     }
 

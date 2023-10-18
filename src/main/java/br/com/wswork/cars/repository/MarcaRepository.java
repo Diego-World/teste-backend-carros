@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 @Repository
 public interface MarcaRepository extends JpaRepository<Marca, Long> {
-
+    findByMarca(String marca);
 }
