@@ -20,13 +20,22 @@ public class MarcaController {
     // CREATE
     @PostMapping("")
     public ResponseEntity createMarca(@RequestBody Marca marca){
-        if(!marca.getNomeMarca().isEmpty()){
-            var novaMarca = this.marcaRepository.save(marca);
-            return ResponseEntity.status(HttpStatus.OK).body("Marca adicionada com sucesso");
-        }else{
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("A marca não pode ser nula");
+        if (marca.getNomeMarca().isBlank()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("O nome da marca não pode ser vazio");
+        }
+
+        Marca marcaBanco = marcaRepository.findByNomeMarca(marca.getNomeMarca());
+
+        if (marcaBanco != null) {
+            return ResponseEntity.status(HttpStatus.OK).body("Marca já existe");
+        } else {
+            Marca novaMarca = marcaRepository.save(marca);
+            return ResponseEntity.status(HttpStatus.OK).body("Marca criada com sucesso");
         }
     }
+
+
+
     //READ ALL
     @GetMapping("")
     public ResponseEntity<List<Marca>> getAll(){

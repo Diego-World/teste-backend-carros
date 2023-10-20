@@ -1,6 +1,7 @@
 package br.com.wswork.cars.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -9,21 +10,22 @@ import java.util.UUID;
 @Table(name = "tb_carro")
 public class Carro {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @CreationTimestamp
     private LocalDateTime timeStampCadastro;
     @ManyToOne
     @JoinColumn(name = "modelo_Id")
     private Modelo modelo;
-    private String ano;
+    private int ano;
     private String combustivel;
-    private String numPortas;
+    private int numPortas;
     private String cor;
 
     public Carro() {
     }
 
-    public Carro(LocalDateTime timeStampCadastro, Modelo modelo, String ano, String combustivel, String numPortas, String cor) {
+    public Carro(LocalDateTime timeStampCadastro, Modelo modelo, int ano, String combustivel, int numPortas, String cor) {
         this.timeStampCadastro = timeStampCadastro;
         this.modelo = modelo;
         this.ano = ano;
@@ -56,11 +58,11 @@ public class Carro {
         this.modelo = modelo;
     }
 
-    public String getAno() {
+    public int getAno() {
         return ano;
     }
 
-    public void setAno(String ano) {
+    public void setAno(int ano) {
         this.ano = ano;
     }
 
@@ -72,11 +74,11 @@ public class Carro {
         this.combustivel = combustivel;
     }
 
-    public String getNumPortas() {
+    public int getNumPortas() {
         return numPortas;
     }
 
-    public void setNumPortas(String numPortas) {
+    public void setNumPortas(int numPortas) {
         this.numPortas = numPortas;
     }
 

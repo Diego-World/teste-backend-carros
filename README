@@ -9,3 +9,29 @@ A criação do projeto foi feita utilizando o Spring initializr e a IDE que esto
 No banco de dados estou utilizando o banco em memória H2 por conta da praticidade.
 
 Para gerenciador de pacotes estou utilizando o Maven por ter mais familiaridade.
+
+## Nota 2
+
+Após o start do projeto fiz a modelagem das entidades Marca, Modelo e Carro.
+
+Fiz os seus relacionamentos e prossegui com a criação dos seus respectivos repositorys e controllers.
+
+Para auxiliar na construção dos End-Points e teste, criei uma pequena amostra de registros no banco utilizando
+o import.sql para o banco de dados.
+
+
+## Nota 3
+
+Como a Entidade 'Modelo' possui mais de um atributo que podem ser atualizados (HTTP PUT) resolvi
+utilizar de uma estratégia que compara atributos nulos e não nulos de dois objetos para evitar que
+dados nulos sejam salvos no banco.
+
+# Nota 4
+
+Para formatar o JSON de acordo com o teste criei a camada de serviço para transformar o objeto carro
+que tem outros relacionamentos no formato solicitado.
+
+## Nota 5
+
+Por fim implementei algumas validações para que não seja possível implementar o mesmo modelo/marca.
+

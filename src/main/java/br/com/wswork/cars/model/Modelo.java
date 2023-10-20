@@ -8,21 +8,21 @@ import java.util.UUID;
 @Table(name = "tb_modelo")
 public class Modelo {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long modeloId;
     private String nome;
     private Double valorFipe;
     @ManyToOne
     @JoinColumn(name = "marca_id")
-    private Marca marca;
+    private Marca marcaId;
 
     public Modelo() {
     }
 
-    public Modelo(String nome, Double valorFipe, Marca marca) {
+    public Modelo(String nome, Double valorFipe, Marca marcaId) {
         this.nome = nome;
         this.valorFipe = valorFipe;
-        this.marca = marca;
+        this.marcaId = marcaId;
     }
 
     public Long getModeloId() {
@@ -49,11 +49,11 @@ public class Modelo {
         this.valorFipe = valorFipe;
     }
 
-    public Marca getMarca() {
-        return marca;
+    public Marca getMarcaId() {
+        return marcaId;
     }
 
-    public void setMarca(Marca marca) {
-        this.marca = marca;
+    public void setMarcaId(Marca marcaId) {
+        this.marcaId = marcaId;
     }
 }
