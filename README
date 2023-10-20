@@ -1,37 +1,50 @@
-Olá, meu nome é Diego Gouveia e sou o desenvolvedor por trás desse teste!
+Olá, meu nome é Diego Gouveia e sou o desenvolvedor por trás deste teste!
 
-Aqui vou deixar minhas notas sobre o desenvolvimento.
+Aqui, vou deixar minhas notas sobre o desenvolvimento.
 
 ## Nota 1
 
-A criação do projeto foi feita utilizando o Spring initializr e a IDE que estou utilizando é o Intelij.
+A criação do projeto foi feita utilizando o Spring Initializr e a IDE que estou utilizando é o IntelliJ.
 
-No banco de dados estou utilizando o banco em memória H2 por conta da praticidade.
+No banco de dados, estou utilizando o banco em memória H2 por conta da praticidade.
 
-Para gerenciador de pacotes estou utilizando o Maven por ter mais familiaridade.
+Para o gerenciamento de pacotes, estou utilizando o Maven por ter mais familiaridade.
 
 ## Nota 2
 
-Após o start do projeto fiz a modelagem das entidades Marca, Modelo e Carro.
+Após iniciar o projeto, fiz a modelagem das entidades Marca, Modelo e Carro.
 
-Fiz os seus relacionamentos e prossegui com a criação dos seus respectivos repositorys e controllers.
+Fiz os seus relacionamentos e prossegui com a criação dos seus respectivos repositories e controllers.
 
-Para auxiliar na construção dos End-Points e teste, criei uma pequena amostra de registros no banco utilizando
-o import.sql para o banco de dados.
-
+Para auxiliar na construção dos End-Points e testes, criei uma pequena amostra de registros no banco utilizando o arquivo `import.sql` para o banco de dados.
 
 ## Nota 3
 
-Como a Entidade 'Modelo' possui mais de um atributo que podem ser atualizados (HTTP PUT) resolvi
-utilizar de uma estratégia que compara atributos nulos e não nulos de dois objetos para evitar que
-dados nulos sejam salvos no banco.
+Como a entidade 'Modelo' possui mais de um atributo que pode ser atualizado (HTTP PUT), resolvi utilizar uma estratégia que compara atributos nulos e não nulos de dois objetos para evitar que dados nulos sejam salvos no banco.
 
-# Nota 4
+## Nota 4
 
-Para formatar o JSON de acordo com o teste criei a camada de serviço para transformar o objeto carro
-que tem outros relacionamentos no formato solicitado.
+Para formatar o JSON de acordo com o teste, criei a camada de serviço para transformar o objeto carro, que tem outros relacionamentos, no formato solicitado.
 
 ## Nota 5
 
-Por fim implementei algumas validações para que não seja possível implementar o mesmo modelo/marca.
+Por fim, implementei algumas validações para que não seja possível implementar o mesmo modelo/marca.
 
+## Nota 6
+
+Sobre a questão do CORS especificada na documentação, utilizei a anotação que permite requests de qualquer origem.
+
+## Nota 7
+
+Detalhes do projeto:
+
+- JDK: 17
+- Gerenciador de pacotes: Maven
+- IDE: IntelliJ
+- Mapeamento de Endpoints: Postman
+
+Acesso ao banco H2:
+
+- URL: http://localhost:8080/h2-console
+- Usuário: admin
+- Senha: admin
