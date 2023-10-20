@@ -6,7 +6,6 @@ import br.com.wswork.cars.model.Modelo;
 import br.com.wswork.cars.repository.MarcaRepository;
 import br.com.wswork.cars.repository.ModeloRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +32,7 @@ public class ModeloController {
             if(!modelo.getNome().isBlank()){
                 Modelo modeloBanco = modeloRepository.findByNome(modelo.getNome());
                 if(modeloBanco != null){
-                    return ResponseEntity.status(HttpStatus.OK).body("Modelo já existe");
+                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Modelo já existe");
                 }else{
                     modelo.setMarcaId(marca);
                     var novoModelo = modeloRepository.save(modelo);
@@ -44,22 +43,6 @@ public class ModeloController {
             }
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("O ID da marca associado ao modelo deve ser válido");
-        }
-    }
-
-    @PostMapping("")
-    public ResponseEntity createMarca(@RequestBody Marca marca){
-        if (marca.getNomeMarca().isBlank()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("O nome da marca não pode ser vazio");
-        }
-
-        Marca marcaBanco = marcaRepository.findByNomeMarca(marca.getNomeMarca());
-
-        if (marcaBanco != null) {
-            return ResponseEntity.status(HttpStatus.OK).body("Marca já existe");
-        } else {
-            Marca novaMarca = marcaRepository.save(marca);
-            return ResponseEntity.status(HttpStatus.OK).body("Marca criada com sucesso");
         }
     }
 
@@ -91,12 +74,12 @@ public class ModeloController {
         return ResponseEntity.status(HttpStatus.OK).body(modeloBanco);
     }
 
-    @DeleteMapping("/{marcaId}")
-    public ResponseEntity delete(@PathVariable Long marcaId){
-        if(this.marcaRepository.existsById(marcaId)){
-            var marca = this.marcaRepository.findById(marcaId);
-            this.marcaRepository.delete(marca.get());
-            return ResponseEntity.status(HttpStatus.OK).body("Marca excluida com sucesso");
+    @DeleteMapping("/{modeloId}")
+    public ResponseEntity delete(@PathVariable Long modeloId){
+        if(this.modeloRepository.existsById(modeloId)){
+            var marca = this.modeloRepository.findById(modeloId);
+            this.modeloRepository.delete(marca.get());
+            return ResponseEntity.status(HttpStatus.OK).body("Modelo excluido com sucesso");
         }else{
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("ID inválido");
         }

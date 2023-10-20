@@ -27,7 +27,7 @@ public class MarcaController {
         Marca marcaBanco = marcaRepository.findByNomeMarca(marca.getNomeMarca());
 
         if (marcaBanco != null) {
-            return ResponseEntity.status(HttpStatus.OK).body("Marca já existe");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Marca já existe");
         } else {
             Marca novaMarca = marcaRepository.save(marca);
             return ResponseEntity.status(HttpStatus.OK).body("Marca criada com sucesso");

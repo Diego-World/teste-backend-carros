@@ -42,9 +42,11 @@ Detalhes do projeto:
 - Gerenciador de pacotes: Maven
 - IDE: IntelliJ
 - Mapeamento de Endpoints: Postman
+        - postman_collection.json na pasta resources.
 
 Acesso ao banco H2:
 
 - URL: http://localhost:8080/h2-console
 - Usuário: admin
 - Senha: admin
+

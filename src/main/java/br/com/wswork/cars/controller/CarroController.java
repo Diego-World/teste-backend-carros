@@ -32,6 +32,18 @@ public class CarroController {
     public ResponseEntity createModelo(@RequestBody Carro carro, @PathVariable Long modeloId) {
         Modelo modelo = this.modeloRepository.findById(modeloId).orElse(null);
         if (modelo != null) {
+            if(carro.getNumPortas() <= 1){
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("O carro deve ter no mínimo duas portas");
+            }
+            if(carro.getAno() < 1886){
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("O ano do veículo não pode ser menor que a data de invenção do carro");
+            }
+            if(carro.getCombustivel().isBlank()){
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("O carro deve ter um tipo de combustível");
+            }
+            if(carro.getCor().isBlank()){
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("O carro deve ter uma cor");
+            }
             carro.setModelo(modelo);
             var novoModelo = carroRepository.save(carro);
             return ResponseEntity.status(HttpStatus.OK).body("Carro Salvo com sucesso");
@@ -39,13 +51,6 @@ public class CarroController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("O ID do modelo associado ao carro deve ser válido");
         }
     }
-
-    //READ ALL
-//    @GetMapping("")
-//    public ResponseEntity<List<Carro>> getAll() {
-//        List<Carro> list = this.carroRepository.findAll();
-//        return ResponseEntity.status(HttpStatus.OK).body(list);
-//    }
 
     @GetMapping("")
     public ResponseEntity<List<CarroDTO>> getAll() {
